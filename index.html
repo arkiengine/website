@@ -70,11 +70,11 @@
             justify-self: start;
             font-size: 1.8rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6, #ec4899);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            flex: 0 0 auto; /* Prevent logo from stretching */
+            flex: 0 0 auto;
+        }
+
+        .logo img {
+            filter: none;
         }
 
         .nav-links {
@@ -114,21 +114,26 @@
 
         .cta-button {
             display: none !important;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-            grid-column: 3;
-            justify-self: end;
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        .nav-epic-badge {
+            grid-column: 3;
+            justify-self: end;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-epic-badge img {
+            height: 104px;
+            width: auto;
+            filter: brightness(0);
+        }
+
+        @media (max-width: 768px) {
+            .nav-epic-badge {
+                display: none;
+            }
         }
 
         /* Hero Section */
@@ -554,6 +559,34 @@
             color: #9ca3af;
         }
 
+        .epic-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .epic-badge img {
+            height: 48px;
+            width: auto;
+            filter: brightness(0) invert(1);
+        }
+
+        .epic-badge span {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e5e7eb;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        /* Responsive videos */
+        video {
+            max-width: 100%;
+            display: block;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             nav {
@@ -568,11 +601,14 @@
                 justify-self: center;
                 text-align: center;
             }
+            .logo img {
+                height: 5rem !important;
+            }
             .nav-links {
                 display: none;
                 flex-direction: column;
                 gap: 1.5rem;
-                padding: 0;
+                padding: 1rem 0;
                 margin: 0 auto;
                 background: rgba(255,255,255,0.97);
                 border-radius: 16px;
@@ -591,7 +627,103 @@
                 color: #333;
                 cursor: pointer;
             }
+
+            /* Hero */
+            .hero {
+                padding-top: 8rem;
+                min-height: auto;
+                padding-bottom: 4rem;
+            }
+            .hero-content {
+                padding: 0 1rem;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Features */
+            .features {
+                padding: 3rem 0;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .feature-card {
+                min-height: 220px;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            /* Demo section */
+            .demo {
+                padding: 3rem 0;
+            }
+            .demo-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .demo-content h2 {
+                font-size: 1.8rem;
+            }
+            .demo-visual {
+                padding: 1rem;
+            }
+            .demo-placeholder video {
+                height: auto !important;
+                width: 100% !important;
+                aspect-ratio: 16 / 9;
+            }
+
+            /* Stats */
+            .stats {
+                padding: 2.5rem 0;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* CTA / video section */
+            .cta-section {
+                padding: 3rem 0;
+            }
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+            .cta-section > .container > div[style] {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            .cta-section video {
+                height: auto !important;
+                width: 100% !important;
+                aspect-ratio: 16 / 9;
+            }
+
+            /* Footer */
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Hide custom cursor on touch devices */
+            .cursor {
+                display: none;
+            }
+            * {
+                cursor: auto;
+            }
         }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (min-width: 769px) {
             nav .menu-button {
                 display: none !important;
@@ -614,17 +746,16 @@
                 <li><a href="#pricing">Fab Store</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#" class="cta-button">Get Started</a>
+            <div class="nav-epic-badge">
+                <img src="Epic_MegaGrants_Recipient_logo.png" alt="Epic MegaGrant Recipient">
+            </div>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="floating-element">🎨</div>
-        <div class="floating-element">🏗️</div>
-        <div class="floating-element">🧠</div>
         <div class="hero-content">
              <h1>Revolutionize Your Designs</h1>
-            <p>The ultimate parametric design platform for AEC professionals. Create intricate 2D and 3D models, optimize designs, and collaborate seamlessly with cutting-edge technology through the power of Unreal Engine</p>
+            <p>A Cutting-edge real time, data driven design platform enabling configurable workflows, advanced geometric and analytical computation, and high quality architectural visualization</p>
            
             <!--<h1>Transform Ideas into Reality</h1>
             <p>The ultimate AI-powered creative platform for architects and designers. Generate stunning 2D images, 3D models, and collaborate in real-time with cutting-edge AI technology.</p>
@@ -703,7 +834,7 @@
                 </div>
                 <div class="demo-visual">
                     <div class="demo-placeholder" style="padding:0; height:auto;">
-                        <video width="100%" height="300" controls poster="pav2.png" style="border-radius:15px; background:#222;">
+                        <video width="100%" controls poster="pav2.png" style="border-radius:15px; background:#222; width:100%; height:auto; aspect-ratio:16/9; display:block;">
                             <source src="Arkiengine Promo.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -747,22 +878,22 @@
             <h2>All Scales of Urban Design</h2>
             <p>Join the architects and designers who are already using Arki Engine to accelerate their creativity.</p>
             <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-        <div style="flex: 1 1 250px; max-width: 350px; background: rgba(30,30,30,0.12); border-radius: 16px; padding: 1rem; display: flex; flex-direction: column; align-items: center;">
-            <video width="100%" height="180" controls poster="pav3.png" controls style="border-radius: 10px; background:#222;">
+        <div style="flex: 1 1 250px; max-width: 350px; min-width: 0; background: rgba(30,30,30,0.12); border-radius: 16px; padding: 1rem; display: flex; flex-direction: column; align-items: center;">
+            <video width="100%" controls poster="pav3.png" style="border-radius: 10px; background:#222; width:100%; height:auto; aspect-ratio:16/9; display:block;">
                 <source src="Vid1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div style="margin-top: 0.75rem; color: #fff; font-weight: 600; text-align: center;">Pavilions</div>
         </div>
-        <div style="flex: 1 1 250px; max-width: 350px; background: rgba(30,30,30,0.12); border-radius: 16px; padding: 1rem; display: flex; flex-direction: column; align-items: center;">
-            <video width="100%" height="180" controls poster="tower3.png" controls style="border-radius: 10px; background:#222;">
+        <div style="flex: 1 1 250px; max-width: 350px; min-width: 0; background: rgba(30,30,30,0.12); border-radius: 16px; padding: 1rem; display: flex; flex-direction: column; align-items: center;">
+            <video width="100%" controls poster="tower3.png" style="border-radius: 10px; background:#222; width:100%; height:auto; aspect-ratio:16/9; display:block;">
                 <source src="Vid2.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div style="margin-top: 0.75rem; color: #fff; font-weight: 600; text-align: center;">Buildings</div>
         </div>
-        <div style="flex: 1 1 250px; max-width: 350px; background: rgba(30,30,30,0.12); border-radius: 16px; padding: 1rem; display: flex; flex-direction: column; align-items: center;">
-            <video width="100%" height="180" controls poster="plan2.png" controls style="border-radius: 10px; background:#222;">
+        <div style="flex: 1 1 250px; max-width: 350px; min-width: 0; background: rgba(30,30,30,0.12); border-radius: 16px; padding: 1rem; display: flex; flex-direction: column; align-items: center;">
+            <video width="100%" controls poster="plan2.png" style="border-radius: 10px; background:#222; width:100%; height:auto; aspect-ratio:16/9; display:block;">
                 <source src="Vid3.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -813,7 +944,11 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 ARKI ENGINE. All rights reserved.</p>
+                <div class="epic-badge">
+                    <img src="Epic_MegaGrants_Recipient_logo.png" alt="Epic MegaGrant Recipient">
+                    <span>Epic MegaGrant Recipient</span>
+                </div>
+                <p>&copy; 2026 ARKI ENGINE. All rights reserved.</p>
             </div>
         </div>
     </footer>
