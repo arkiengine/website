@@ -10,15 +10,16 @@
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg:       #05080f;
-      --bg2:      #0c1018;
-      --bg3:      #111827;
-      --accent:   #00d4ff;
-      --accent2:  #7c3aed;
+      --bg:       #060d12;
+      --bg2:      #0c1820;
+      --bg3:      #132530;
+      --accent:   #e60012;
+      --accent-bright: #ff2d3b;
+      --accent2:  #00d4ff;
       --text:     #e2e8f0;
-      --muted:    #94a3b8;
+      --muted:    #7a9aab;
       --border:   rgba(0,212,255,.12);
-      --glow:     rgba(0,212,255,.06);
+      --glow:     rgba(230,0,18,.08);
     }
 
     html { scroll-behavior: smooth; }
@@ -46,7 +47,7 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; justify-content: space-between; align-items: center;
       padding: 0.6rem 4rem;
-      background: rgba(5,8,15,.85);
+      background: rgba(6,13,18,.85);
       backdrop-filter: blur(24px);
       border-bottom: 1px solid var(--border);
     }
@@ -194,8 +195,8 @@
       letter-spacing: .07em; text-transform: uppercase;
       text-decoration: none; transition: all .22s;
     }
-    .btn-primary { background: var(--accent); color: var(--bg); border: 1px solid var(--accent); }
-    .btn-primary:hover { background: #fff; border-color: #fff; }
+    .btn-primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+    .btn-primary:hover { background: var(--accent-bright); border-color: var(--accent-bright); }
     .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -238,14 +239,14 @@
     .feature-card-content {
       position: relative; z-index: 1;
       padding: 1.5rem;
-      background: linear-gradient(to top, rgba(5,8,15,.92) 60%, transparent 100%);
+      background: linear-gradient(to top, rgba(6,13,18,.92) 60%, transparent 100%);
     }
 
     .feature-tag {
       font-family: 'Space Mono', monospace;
       font-size: .62rem; padding: .2rem .55rem;
       border: 1px solid rgba(0,212,255,.22);
-      background: rgba(0,212,255,.06); color: var(--accent);
+      background: rgba(0,212,255,.06); color: var(--accent2);
       text-transform: uppercase;
       display: inline-block; margin-bottom: .75rem;
     }
@@ -282,26 +283,38 @@
     .share-btn {
       font-family: 'Space Mono', monospace;
       font-size: .72rem; padding: .45rem 1.2rem;
-      background: rgba(0,212,255,.08);
-      border: 1px solid rgba(0,212,255,.22);
+      background: rgba(230,0,18,.08);
+      border: 1px solid rgba(230,0,18,.22);
       color: var(--accent);
       cursor: pointer; transition: all .2s;
       text-transform: uppercase; letter-spacing: .08em;
     }
-    .share-btn:hover { background: rgba(0,212,255,.15); border-color: var(--accent); }
-    .share-confirm { color: var(--accent); font-size: .75rem; display: none; }
+    .share-btn:hover { background: rgba(230,0,18,.15); border-color: var(--accent); }
+    .share-confirm { color: var(--accent2); font-size: .75rem; display: none; }
+
+    /* ── WHITE SECTIONS ─────────────────────────────────────── */
+    .section-light {
+      position: relative; z-index: 1;
+      background: #f8f9fb;
+    }
+    .section-light .section-wrap { border-top: none; }
+    .section-light .section-label { color: var(--accent); }
+    .section-light .section-label::before { background: var(--accent); }
+    .section-light .section-title { color: #1a1a2e; }
+    .section-light .section-title span { color: var(--accent); }
 
     /* ── STATS ──────────────────────────────────────────────── */
     .stats-grid {
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem;
     }
     .stat-card {
-      background: var(--bg2); border: 1px solid var(--border);
+      background: #fff; border: 1px solid #e5e7eb;
       padding: 1.75rem 1.5rem; position: relative; overflow: hidden;
-      transition: border-color .25s;
+      transition: border-color .25s, box-shadow .25s;
       text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,.04);
     }
-    .stat-card:hover { border-color: var(--accent); }
+    .stat-card:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(230,0,18,.08); }
     .stat-card::before {
       content: '';
       position: absolute; top: 0; left: 0;
@@ -313,7 +326,7 @@
       line-height: 1;
     }
     .stat-lbl {
-      font-size: .72rem; color: var(--muted);
+      font-size: .72rem; color: #64748b;
       text-transform: uppercase; letter-spacing: .1em; margin-top: .5rem;
     }
 
@@ -352,13 +365,15 @@
       display: flex; justify-content: center; flex-wrap: wrap;
       gap: 1rem; margin-top: 2.25rem;
     }
+    .contact-intro { color: #64748b; }
     .contact-link {
       display: flex; align-items: center; gap: .55rem;
       padding: .8rem 1.6rem;
-      border: 1px solid var(--border);
-      background: var(--bg2);
-      color: var(--muted); text-decoration: none;
+      border: 1px solid #e5e7eb;
+      background: #fff;
+      color: #64748b; text-decoration: none;
       font-size: .82rem; transition: all .22s;
+      box-shadow: 0 2px 8px rgba(0,0,0,.04);
     }
     .contact-link:hover { border-color: var(--accent); color: var(--accent); }
     .contact-link .ci { font-size: 1rem; }
@@ -592,27 +607,29 @@
   </div>
 </div>
 
-<!-- ═══════════════════ STATS ════════════════ -->
-<div class="section-wrap" id="stats">
-  <div class="section-label">03 / Numbers</div>
-  <h2 class="section-title">Platform <span>Metrics</span></h2>
+<!-- ═══════════════════ STATS (WHITE) ════════════════ -->
+<div class="section-light">
+  <div class="section-wrap" id="stats">
+    <div class="section-label">03 / Numbers</div>
+    <h2 class="section-title">Platform <span>Metrics</span></h2>
 
-  <div class="stats-grid">
-    <div class="stat-card reveal d1">
-      <div class="stat-num" data-target="100" data-suffix="+">0</div>
-      <div class="stat-lbl">Material Options</div>
-    </div>
-    <div class="stat-card reveal d2">
-      <div class="stat-num" data-target="1000" data-suffix="+">0</div>
-      <div class="stat-lbl">Configuration Options</div>
-    </div>
-    <div class="stat-card reveal d3">
-      <div class="stat-num" data-target="95" data-suffix="%">0</div>
-      <div class="stat-lbl">Time Saved</div>
-    </div>
-    <div class="stat-card reveal d4">
-      <div class="stat-num" data-target="4000" data-suffix="+">0</div>
-      <div class="stat-lbl">Cities</div>
+    <div class="stats-grid">
+      <div class="stat-card reveal d1">
+        <div class="stat-num" data-target="100" data-suffix="+">0</div>
+        <div class="stat-lbl">Material Options</div>
+      </div>
+      <div class="stat-card reveal d2">
+        <div class="stat-num" data-target="1000" data-suffix="+">0</div>
+        <div class="stat-lbl">Configuration Options</div>
+      </div>
+      <div class="stat-card reveal d3">
+        <div class="stat-num" data-target="95" data-suffix="%">0</div>
+        <div class="stat-lbl">Time Saved</div>
+      </div>
+      <div class="stat-card reveal d4">
+        <div class="stat-num" data-target="4000" data-suffix="+">0</div>
+        <div class="stat-lbl">Cities</div>
+      </div>
     </div>
   </div>
 </div>
@@ -644,7 +661,8 @@
   </div>
 </div>
 
-<!-- ═══════════════════ CONTACT ══════════════ -->
+<!-- ═══════════════════ CONTACT (WHITE) ══════════════ -->
+<div class="section-light">
 <div class="section-wrap" id="contact">
   <div id="contact-wrap">
     <div class="section-label" style="justify-content:center;">05 / Contact</div>
@@ -670,6 +688,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 
 <!-- ═══════════════════ FOOTER ══════════════ -->
